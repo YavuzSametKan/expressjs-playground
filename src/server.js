@@ -1,7 +1,7 @@
 import express from 'express'
-import usersRoutes from "./routes/users.js"
+import usersRouter from "./features/users/route.js"
 import morgan from "morgan"
-import logger from "./utils/logger.js"
+import logger from "./utils/logging/logger.js"
 
 const app = express()
 
@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
         })
 })
 
-// users endpoint
-app.use('/api', usersRoutes)
+// mockData endpoint
+app.use('/api', usersRouter)
 
 // Global error handling middleware
 app.use((err, req, res, next) => {

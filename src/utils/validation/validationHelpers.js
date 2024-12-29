@@ -1,4 +1,4 @@
-export const findItemById = (items, id, idField = 'id') => {
+export const findItemOrError = (items, id, idField = 'id') => {
     const matchedItemIndex = items.findIndex(item => item[idField] == id)
 
     if (matchedItemIndex === -1)
