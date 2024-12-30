@@ -5,7 +5,7 @@ import {authenticateToken} from "../../utils/jwt/index.js";
 
 const usersRouter = Router()
 
-const BASE_URL = '/books'
+const BASE_URL = '/users'
 
 usersRouter.use(authenticateToken)
 
