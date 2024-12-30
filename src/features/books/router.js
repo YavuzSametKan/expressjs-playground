@@ -1,10 +1,13 @@
 import {Router} from "express"
 import {createUser, deleteUser, getUser, getUsers, patchUser, updateUser} from "./controller.js";
-import {commonUserValidation, validateGetUsers} from "./validation.js";
+import {commonUserValidation, validateGetUsers} from "./validations.js";
+import {authenticateToken} from "../../utils/jwt/index.js";
 
 const usersRouter = Router()
 
-const BASE_URL = '/users'
+const BASE_URL = '/books'
+
+usersRouter.use(authenticateToken)
 
 usersRouter.get(BASE_URL, validateGetUsers, getUsers)
 usersRouter.post(BASE_URL, commonUserValidation, createUser)
